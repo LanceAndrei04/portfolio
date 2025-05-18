@@ -3,14 +3,14 @@ import './ProjectCard.css';
 // Removed AccentButton import as we'll use styled <a> tags
 import type { Project } from '../types';
 import {
-  FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaPython, FaGitAlt, FaDocker, FaWordpress, FaStripe, FaVuejs, FaAws, FaGoogle, FaJava, FaBootstrap
+  FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaPython, FaStripe, FaVuejs, FaAws, FaGoogle, FaJava, FaBootstrap
 } from 'react-icons/fa';
 import {
-  SiTypescript, SiRedux, SiMongodb, SiPostgresql, SiGraphql, SiApollographql, SiJest, SiWebpack, SiFirebase, SiSvelte, 
-  SiNuxtdotjs, SiFastapi, SiTensorflow, SiRedis, SiExpo, SiVuetify, SiHeroku, SiNextdotjs, SiVercel, SiNetlify, SiSocketdotio, SiTailwindcss,
+  SiTypescript, SiMongodb, SiPostgresql, SiGraphql,  SiFirebase, SiSvelte, 
+ SiFastapi, SiTensorflow, SiRedis, SiExpo, SiVuetify, SiHeroku,  SiSocketdotio, SiTailwindcss,
   SiExpress, SiFlask, SiSqlalchemy, SiGodotengine, SiDotnet, SiSharp
 } from 'react-icons/si';
-import { FiDatabase, FiShoppingCart, FiTerminal, FiUsers, FiSmartphone, FiCode } from 'react-icons/fi'; // Generic icons
+import { FiDatabase,  FiTerminal, FiUsers, FiSmartphone, FiCode } from 'react-icons/fi'; // Generic icons
 
 // Helper to get icon for a tag
 const getTagIcon = (tagName: string): React.ReactNode | null => {
@@ -47,7 +47,6 @@ const getTagIcon = (tagName: string): React.ReactNode | null => {
     case 'graphql': return <SiGraphql />;
     case 'expo': return <SiExpo />;
     case 'nuxt.js':
-    case 'nuxtjs': return <SiNuxtdotjs />;
     case 'postgresql': return <SiPostgresql />;
     case 'aws s3':
     case 'aws': return <FaAws />;

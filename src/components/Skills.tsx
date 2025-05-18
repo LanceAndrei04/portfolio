@@ -1,14 +1,13 @@
 import React from 'react';
 import './Skills.css';
 import { 
-  FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaPython, FaGitAlt, FaDocker, FaFigma, FaWordpress 
+FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaPython, FaGitAlt, FaFigma, FaJava, FaGoogle
 } from 'react-icons/fa';
-import { SiTypescript, SiRedux, SiMongodb, SiPostgresql, SiGraphql, SiApollographql, SiJest, SiWebpack } from 'react-icons/si';
-import { FiDatabase } from 'react-icons/fi'; // Generic database icon
+import { SiTypescript, SiSqlite, SiFirebase, SiSharp, SiDotnet} from 'react-icons/si';
 
 interface Skill {
   name: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 interface SkillCategory {
@@ -24,19 +23,18 @@ const skillData: SkillCategory[] = [
       { name: 'CSS3', icon: <FaCss3Alt /> },
       { name: 'JavaScript', icon: <FaJsSquare /> },
       { name: 'TypeScript', icon: <SiTypescript /> },
+      { name: 'CSharp', icon: <SiSharp /> },
+      { name: '.NET', icon: <SiDotnet /> },
       { name: 'React', icon: <FaReact /> },
-      { name: 'Redux', icon: <SiRedux /> },
-      // Add more frontend skills here
     ]
   },
   {
     name: 'Backend',
     skills: [
-      { name: 'Node.js', icon: <FaNodeJs /> },
       { name: 'Python', icon: <FaPython /> },
-      { name: 'MongoDB', icon: <SiMongodb /> },
-      { name: 'PostgreSQL', icon: <SiPostgresql /> },
-      { name: 'GraphQL', icon: <SiGraphql /> },
+      { name: 'FireBase', icon: <SiFirebase /> },
+      { name: 'Java', icon: <FaJava /> },
+      { name: 'SQLite', icon: <SiSqlite /> },
       // Add more backend skills here
     ]
   },
@@ -44,9 +42,7 @@ const skillData: SkillCategory[] = [
     name: 'Tools & Others',
     skills: [
       { name: 'Git & GitHub', icon: <FaGitAlt /> },
-      { name: 'Docker', icon: <FaDocker /> },
-      { name: 'Jest', icon: <SiJest /> },
-      { name: 'Webpack', icon: <SiWebpack /> },
+      { name: 'Google Cloud', icon: <FaGoogle /> },
       { name: 'Figma', icon: <FaFigma /> },
       // Add more tools/other skills here
     ]
