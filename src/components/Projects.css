@@ -1,0 +1,39 @@
+.projects-section {
+  /* Uses .section for base padding */
+  background-color: var(--color-base-dark); /* Or your preferred section background */
+}
+
+/* .section-title is globally styled in App.css */
+
+.projects-grid {
+  display: grid;
+  gap: var(--space-xl); /* Gap between cards */
+  align-items: start; /* Prevent cards from stretching to match tallest card in row */
+
+  /* Mobile-first: 1 column by default */
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns - as requested */
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Optional: For very large screens, you could go to 4 columns or keep 3 */
+/* @media (min-width: 1440px) {
+  .projects-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+} */
+
+/* ProjectCard styles are in ProjectCard.css */ 
+/* ProjectCard styles are in ProjectCard.css */ 

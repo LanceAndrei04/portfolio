@@ -1,0 +1,172 @@
+:root {
+  /* Color Palette */
+  --color-base-dark: #0D1117; /* Background */
+  --color-surface: #161B22;   /* Surface */
+  --color-border: #2A2F3A;    /* Border/Divider */
+  --color-text-primary: #E6F1F4; /* Primary Text */
+  --color-text-secondary: #94A3B8;/* Secondary Text */
+  --color-accent: #14B8A6;      /* Teal Accent */
+  --color-accent-hover: #2DD4BF; /* Accent Hover */
+  --color-accent-rgb: 20, 184, 166; /* Teal Accent RGB */
+
+  /* Neumorphic Shadow Colors for Dark Theme Cards - Adjusted for new palette */
+  --neumorphic-card-shadow-light: #1E242C; /* Lighter than Surface */
+  --neumorphic-card-shadow-dark: #0F131A;   /* Darker than Surface */
+  /* Assuming emboss shadows follow similar logic based on Surface or Base Dark */
+  --neumorphic-emboss-light: #1E242C; /* Lighter than Surface (example) */
+  --neumorphic-emboss-dark: #0F131A;   /* Darker than Surface (example) */
+
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --h1-size: 2.5rem; /* 40px */
+  --h2-size: 2rem;   /* 32px */
+  --h3-size: 1.5rem; /* 24px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-md: 1rem;     /* 16px */
+  --text-sm: 0.875rem; /* 14px */
+
+  /* Spacing */
+  --space-unit: 1rem;
+  --space-xs: calc(var(--space-unit) * 0.5);  /* 8px */
+  --space-sm: var(--space-unit);            /* 16px */
+  --space-md: calc(var(--space-unit) * 1.5);  /* 24px */
+  --space-lg: calc(var(--space-unit) * 2);    /* 32px */
+  --space-xl: calc(var(--space-unit) * 3);    /* 48px */
+  --space-xxl: calc(var(--space-unit) * 4);   /* 64px */
+
+  /* Borders & Shadows */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --subtle-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow */
+  --subtle-border: 1px solid var(--color-border);
+}
+
+body {
+  background-color: var(--color-base-dark);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-primary);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h1 { font-size: var(--h1-size); }
+h2 { font-size: var(--h2-size); }
+h3 { font-size: var(--h3-size); }
+
+/* Paragraphs */
+p {
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+}
+
+/* General section styling */
+.section {
+  padding: var(--space-xl) 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --h1-size: 3rem; /* 48px */
+    --h2-size: 2.25rem; /* 36px */
+    --h3-size: 1.75rem; /* 28px */
+  }
+  .section {
+    padding: var(--space-xxl) 0;
+  }
+  .container {
+    padding: 0 var(--space-xl);
+  }
+}
+
+/* Utility class for accent color text */
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* Basic Button Style - to be refined in Button.css */
+.button {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-accent);
+  color: var(--color-text-primary); /* Primary Text for contrast */
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Container for centering content within sections if needed */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    box-sizing: border-box;
+}
+
+/* General styles for glassmorphism */
+.glass-panel {
+  background: rgba(22, 27, 34, 0.75); /* Semi-transparent Surface */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(42, 47, 58, 0.5); /* Semi-transparent Border/Divider */
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 var(--subtle-shadow); /* Using the new shadow */
+}
+
+/* General styles for neumorphism (can be applied with other classes) */
+.neumorphic-pressed {
+  border-radius: 10px;
+  background: var(--color-surface); /* Use Surface */
+  box-shadow: inset 5px 5px 10px var(--neumorphic-card-shadow-dark),
+              inset -5px -5px 10px var(--neumorphic-card-shadow-light);
+}
+
+.neumorphic-embossed {
+    border-radius: 10px;
+    background: var(--color-surface); /* Use Surface */
+    box-shadow: 5px 5px 10px var(--neumorphic-emboss-dark),
+                -5px -5px 10px var(--neumorphic-emboss-light);
+}
+
+/* Glow effect for interactive elements */
+.interactive-glow:hover {
+  box-shadow: 0 0 15px 5px rgba(20, 184, 166, 0.3); /* Semi-transparent Teal Accent */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.text-glow {
+    text-shadow: 0 0 8px rgba(20, 184, 166, 0.3), 0 0 10px rgba(20, 184, 166, 0.3), 0 0 12px rgba(20, 184, 166, 0.3); /* Semi-transparent Teal Accent */
+} 

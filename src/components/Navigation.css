@@ -1,0 +1,83 @@
+.navigation {
+  background-color: var(--color-surface); /* Changed to Surface */
+  padding: var(--space-sm) 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: var(--subtle-shadow); /* Use variable for new shadow */
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--space-md);
+}
+
+.nav-links a {
+  color: var(--color-text-secondary);
+  font-size: var(--text-md);
+  font-weight: 500;
+  padding: var(--space-xs) 0; /* Add some padding for easier clicking */
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+
+/* Optional: active link style or underline effect */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after { /* Add .active class with JS if needed */
+  width: 100%;
+}
+
+/* Mobile Menu (basic placeholder, can be expanded) */
+.mobile-menu-icon {
+    display: none; /* Hidden by default */
+    /* Styles for hamburger icon */
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        /* display: none; /* Hide links for mobile, show hamburger */
+        /* Consider how to handle centered links on mobile, or if menu icon is still desired */
+        /* For now, let them wrap or overflow if too many for small screens */
+        flex-wrap: wrap; /* Allow links to wrap on small screens */
+        justify-content: center; /* Ensure they stay centered if they wrap */
+        gap: var(--space-sm); /* Adjust gap for mobile if needed */
+    }
+    /* .mobile-menu-icon {
+        display: block;
+    } */ /* Commenting out mobile icon logic as nav links are now centered */
+} 

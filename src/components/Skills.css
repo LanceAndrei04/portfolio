@@ -1,0 +1,76 @@
+.skills-section {
+  /* Uses .section and .container for base padding and width */
+  background-color: var(--color-surface); /* Slightly different background for section variety */
+  overflow-x: auto; /* Allow horizontal scrolling on small screens if categories don't fit */
+  padding-bottom: var(--space-md); /* Add padding for scrollbar if it appears */
+}
+
+/* .section-title is globally styled in App.css */
+
+/* Remove old .skills-grid if it exists */
+
+.skills-categories-container {
+  display: flex; /* Changed from grid to flex */
+  flex-direction: row; /* Explicitly set to row */
+  gap: var(--space-xl); /* Gap between category groups */
+  /* flex-wrap: wrap; */ /* Remove wrap if strict single row is desired, otherwise allow wrapping on very small screens */
+  justify-content: flex-start; /* Align categories to the start */
+  padding: var(--space-sm) 0; /* Add some padding if container might scroll */
+}
+
+/* Removed media query for grid-template-columns as we are using flexbox now */
+
+.skill-category-card { /* This is now a flex item representing a category group */
+  padding: 0;
+  min-width: 180px; /* Minimum width for a category to prevent too much squishing */
+  /* flex: 1; */ /* If you want them to share space equally, but min-width might be better */
+  /* Consider text-align: center; for each category group if content is narrow */
+}
+
+.category-name {
+  font-size: var(--text-lg); /* Slightly smaller to fit more categories horizontally */
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: var(--space-sm); /* Reduced margin */
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap; /* Prevent category names from wrapping */
+  text-align: center; /* Center category names */
+}
+
+.skills-list-pills {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 0 0; 
+  display: flex;
+  flex-wrap: wrap; 
+  gap: var(--space-xs); /* Smaller gap between pills */
+  justify-content: center; /* Center pills under the category name */
+}
+
+.skill-pill {
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  padding: calc(var(--space-xs) * 0.75) var(--space-sm); /* Slightly smaller pills */
+  border-radius: var(--border-radius-md); 
+  font-size: var(--text-sm); /* Smaller font for pills */
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: calc(var(--space-xs) * 0.75);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.skill-pill:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+  border-color: var(--color-accent-hover);
+  transform: translateY(-2px); 
+}
+
+.skill-icon {
+  font-size: 1em; /* Adjust icon size relative to smaller pill font */
+}
+
+/* Removed .skills-list and .skill-item as they were from the older design */
+/* Removed .skill-category:hover as .skill-category-card:hover is used */ 

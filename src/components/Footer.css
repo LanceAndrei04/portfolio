@@ -1,0 +1,39 @@
+.footer {
+  background-color: var(--color-base-dark); /* Match main background or slightly different */
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto; /* Pushes footer to the bottom if content is short */
+}
+
+.footer-container {
+  /* .container class from App.css provides max-width and padding */
+  text-align: center;
+}
+
+.footer-social-links {
+  margin-bottom: var(--space-sm);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.footer-social-links a {
+  color: var(--color-text-secondary);
+  font-size: var(--text-md);
+}
+
+.footer-social-links a:hover {
+  color: var(--color-accent);
+}
+
+.footer-copyright {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.footer-made-with {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-xs);
+} 

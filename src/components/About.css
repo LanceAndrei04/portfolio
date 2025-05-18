@@ -1,0 +1,79 @@
+.about-section {
+  /* Uses .section and .container for base padding and width */
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  /* font-size: var(--h2-size); /* Already in App.css */
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  align-items: center; /* Center text block if no image */
+}
+
+.about-text {
+  max-width: 700px; /* Control text width for readability */
+  text-align: left; /* Or center if preferred */
+}
+
+.about-text p {
+  margin-bottom: var(--space-md);
+  font-size: var(--text-lg); /* Slightly larger for about section */
+  color: var(--color-text-secondary);
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-md); /* Add some padding around the placeholder */
+}
+
+.about-image-placeholder {
+  width: 250px; /* Adjust size as needed */
+  height: 250px; /* Adjust size as needed */
+  background-color: var(--color-surface); /* Changed to Surface for card-like elements */
+  border-radius: 50%; /* Make it circular, common for profile pics */
+  box-shadow: 8px 8px 16px var(--neumorphic-card-shadow-dark),
+              -8px -8px 16px var(--neumorphic-card-shadow-light);
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Add overflow: hidden to clip the image to the circle */
+}
+
+/* Optional: Hover effect for the placeholder */
+.about-image-placeholder:hover {
+  box-shadow: inset 6px 6px 12px var(--neumorphic-card-shadow-dark),
+              inset -6px -6px 12px var(--neumorphic-card-shadow-light);
+}
+
+.profile-picture { /* Style for the actual image inside */
+  max-width: 100%; /* Ensure image does not overflow its container */
+  max-height: 100%; /* Ensure image does not overflow its container */
+  object-fit: fill; /* Scales down to fit, maintains aspect ratio, no cropping */
+  border-radius: 50%; /* Makes the image itself circular */
+}
+
+@media (min-width: 768px) {
+  .about-content {
+    flex-direction: row; /* Side-by-side layout on larger screens */
+    align-items: flex-start;
+    text-align: left;
+  }
+  .about-text {
+    flex: 2; /* Give more space to text */
+    padding-right: var(--space-lg); /* Add some space between text and image */
+  }
+  .about-image {
+    /* Flex:1 already set, ensure it aligns nicely */
+    justify-content: center; /* Center the placeholder horizontally if flex space allows */
+    align-self: center; /* Center placeholder vertically within its flex container */
+  }
+} 

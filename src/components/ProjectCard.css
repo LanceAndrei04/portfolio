@@ -1,0 +1,122 @@
+.project-card {
+  background-color: var(--color-surface); /* Changed to Surface */
+  border-radius: var(--border-radius-lg);
+  /* No border for classic neumorphism, definition comes from shadows */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+rder-radius: 1rem;
+  /* height: 100%; Removed to allow cards to size individually based on content */
+  /* Keep height 100% for grid consistency, but content will be initially more compact */
+  box-shadow: 6px 6px 12px var(--neumorphic-card-shadow-dark),
+              -6px -6px 12px var(--neumorphic-card-shadow-light);
+  transition: box-shadow 0.3s ease-in-out; 
+}
+
+.project-card:hover {
+  /* Neumorphic inset shadow + Teal accent glow */
+  box-shadow: 
+    inset 4px 4px 8px var(--neumorphic-card-shadow-dark),
+    inset -4px -4px 8px var(--neumorphic-card-shadow-light),
+    0 0 20px 4px rgba(var(--color-accent-rgb), 0.5); /* Teal glow */
+  z-index: 10; 
+  position: relative; 
+}
+
+.project-card-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 10; 
+  overflow: hidden;
+  /* Image container might need a very subtle inner shadow or border if it looks too flat */
+  /* background-color: var(--color-surface-dark); Consider if this looks better than base-dark */
+  border-bottom: 1px solid var(--color-border); /* Changed to standard border color */
+  margin-bottom: var(--space-xs); /* Space before title after image */
+}
+
+.project-card-image {
+  width: 100%;
+  height: 100%;
+ject-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; /* Match card top radius */
+}
+
+.project-card:hover .project-card-image {
+  transform: scale(1.05); /* Keep a subtle zoom, or remove if it conflicts with neumorphic feel */
+}
+
+.project-card-content {
+  padding: var(--space-md); 
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensure content area tries to fill space if card height is constrained by grid row */
+}
+
+.project-card-title {
+  font-size: var(--h3-size);
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+}
+
+.project-card-description {
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-height: 0; 
+  opacity: 0;
+  overflow: hidden;
+  margin-bottom: 0; 
+  transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out 0.1s, margin-bottom 0.4s ease-in-out; 
+}
+
+.project-card:hover .project-card-description {
+  max-height: 200px; 
+  opacity: 1;
+  margin-bottom: var(--space-md); 
+}
+
+.project-card-tags {
+  margin-top: auto; 
+  padding-top: var(--space-sm); 
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space-xs) * 0.75); /* Slightly reduced gap for smaller tags */
+  align-items: center; /* Align tags if they have different heights due to icons */
+}
+
+.project-card:hover .project-card-tags {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0; 
+}
+
+.project-card-tag {
+  background-color: var(--color-surface); 
+  color: var(--color-text-secondary); /* Icon color will inherit this initially */
+  padding: calc(var(--space-xs) * 0.5); /* Adjust padding for icons, make it more square-ish */
+  border-radius: var(--border-radius-md); /* Can be less pill-like, more like a small square/circle for icons */
+  font-size: var(--text-md); /* Icon size control - adjust as needed */
+  font-weight: 500; /* Not really applicable to icons */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  display: inline-flex; /* Helps with centering the icon if it has intrinsic padding/margin */
+  justify-content: center;
+  align-items: center;
+  min-width: calc(var(--text-md) + var(--space-xs)); /* Ensure a minimum size */
+  min-height: calc(var(--text-md) + var(--space-xs)); /* Ensure a minimum size */
+}
+
+.project-card-tag:hover {
+  background-color: var(--color-accent); 
+  color: var(--color-base-dark); /* Icon color on hover */
+  transform: scale(1.1); /* Slight pop effect */
+}
+
+/* If you have a text fallback for tags without icons: */
+/* .project-card-tag-text {
+  padding: calc(var(--space-xs) * 0.4) calc(var(--space-sm) * 0.7); 
+  font-size: calc(var(--text-xs) * 0.9);
+} */
+
+/* Remove styles for .project-card-actions, .project-action-link, .project-action-icon */
+/* CSS for these classes can be deleted as they are no longer in the JSX */ 

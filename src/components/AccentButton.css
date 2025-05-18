@@ -1,0 +1,48 @@
+.accent-button {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  font-size: var(--text-md);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  border: 2px solid transparent; /* For outline variant */
+}
+
+/* Primary (Filled) Button */
+.accent-button-primary {
+  background-color: var(--color-accent);
+  color: var(--color-text-primary); /* Changed from white */
+  border-color: var(--color-accent);
+}
+
+.accent-button-primary:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.accent-button-primary:active {
+  transform: translateY(0);
+}
+
+/* Outline Button */
+.accent-button-outline {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.accent-button-outline:hover {
+  background-color: rgba(var(--color-accent-rgb, 0, 175, 255), 0.1); /* Use RGB for transparent hover */
+  color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.accent-button-outline:active {
+  transform: translateY(0);
+}
+
+/* Ensure you define --color-accent-rgb in :root if you use it, e.g. --color-accent-rgb: 0, 175, 255; */ 
