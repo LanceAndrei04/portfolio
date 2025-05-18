@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './App.css'; // Re-added CSS import
 import Navigation from './components/Navigation'; // To be created
 import Hero from './components/Hero';
